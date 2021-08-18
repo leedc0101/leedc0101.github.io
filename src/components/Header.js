@@ -1,60 +1,119 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styled from "styled-components";
+import About from "./About";
+import Post from "./Post";
+import Works from "./Works";
+import {useMediaQuery} from "react-responsive";
+import src from '../assets/menu.png'
 
 const HeaderWrap = styled.div`
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    background-color: midnightblue;
-    color: white;
-    height: 60px;
-    font-size: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #4a4e69;
+  color:white;
+  height: 70px;
+  font-size: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `
 
 const Wrap = styled.div`
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 80%;
-    height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 80%;
+  height: 100%;
+  @media only screen and (max-width: 700px){
+    justify-content: space-between;
+  }
 `
 
 const Menu = styled.div`
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 250px;
-    height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 250px;
+  height: 100%;
 `
 
 const MenuItem = styled.div`
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    font-size: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 20px;
+  &:hover {
+    background-color: #4a4e69;
+  }
 `
 
+const Modal = styled.div`
+  width: 100%;
+  position: absolute;
+  top: 70px;
+  left: 0;
+  background-color: #4a4e69;
+`
 
 function Header() {
-
+    const [index, setIndex] = useState(0)
+    const [active, setActive] = useState(false)
+    const isBigScreen = useMediaQuery({minDeviceWidth: 700})
+    const content = [<About/>,<Post/>,<Works/>]
 
     return (
-       <HeaderWrap>
-          <Wrap>
-             <div>동창</div>
-              <Menu>
-                <MenuItem>About</MenuItem>
-                <MenuItem>Post</MenuItem>
-                <MenuItem>Works</MenuItem>
-             </Menu>
-          </Wrap>
-       </HeaderWrap>
+        <div>
+            <HeaderWrap>
+                <Wrap>
+                    { isBigScreen ? (
+                        <>
+                            <div>Dong Chang Lee</div>
+                            <Menu>
+                                <MenuItem onClick={() => index !== 0 && setIndex(0)}>About</MenuItem>
+                                <MenuItem onClick={() => index !== 1 && setIndex(1)}>Post</MenuItem>
+                                <MenuItem onClick={() => index !== 2 && setIndex(2)}>Works</MenuItem>
+                            </Menu>
+                        </>
+                    ) :(
+                        <>
+                            <div>Dong Chang Lee</div>
+                            <div onClick={() => setActive(!active)}>
+                                <img src={src} style={{height:"20px", width:"25px"}}/>
+                            </div>
+                            { active && (
+                                <Modal>
+                                    <MenuItem onClick={() => {
+                                        index !== 0 && setIndex(0)
+                                        setActive(!active)
+                                    }}>
+                                        About
+                                    </MenuItem>
+                                    <MenuItem onClick={() => {
+                                        index !== 1 && setIndex(1)
+                                        setActive(!active)
+                                    }}>
+                                        Post
+                                    </MenuItem>
+                                    <MenuItem onClick={() => {
+                                        index !== 2 && setIndex(2)
+                                        setActive(!active)
+                                    }}>
+                                        Works
+                                    </MenuItem>
+                                </Modal>
+                            )}
+                        </>
+                    )}
+                </Wrap>
+            </HeaderWrap>
+            <div style={{marginTop:"70px"}}>
+                {content[index]}
+            </div>
+        </div>
     )
 }
 
