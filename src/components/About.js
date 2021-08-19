@@ -43,7 +43,20 @@ const LinksWrap = styled.div`
 const IntroText = styled.div`
   white-space: pre-line;
   font-size: 1vw;
+  @media only screen and (max-width: 500px){
+    font-size: 3.5vw;
+  }
 `
+
+const header = {
+    fontSize:"1.8vw",
+    fontWeight: "bold"
+}
+
+const mobileHeader = {
+    fontSize: "20px",
+    fontWeight: "bold"
+}
 
 function About() {
     const isBigScreen = useMediaQuery({minDeviceWidth: 500})
@@ -52,7 +65,7 @@ function About() {
         <AboutWrap>
             <IntroWrap>
                 <IntroText>
-                    <div style={{fontSize:"1.8vw", fontWeight:"bold"}}>이동창</div>
+                    <div style={isBigScreen ? header : mobileHeader}>이동창</div>
                     {introText}
                 </IntroText>
             </IntroWrap>
