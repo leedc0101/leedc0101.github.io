@@ -16,6 +16,7 @@ const AboutWrap = styled.div`
             "intro"
             "links";
     margin-top: 40px;
+    grid-gap: 40px;
   }
 `
 
@@ -34,10 +35,15 @@ const IntroWrap = styled.div`
 `
 
 const LinksWrap = styled.div`
-  display: flex;
   grid-area: links;
+  font-size: 1vw;
+  line-height: 1.5;
   a {
-    text-decoration: none; 
+    text-decoration: none;
+    color:#9A8C98;
+  }
+  @media only screen and (max-width: 500px){
+    font-size: 3.5vw;
   }
 `
 
@@ -49,36 +55,43 @@ const IntroText = styled.div`
   }
 `
 
-const header = {
-    fontSize:"1.8vw",
-    fontWeight: "bold"
-}
+const HeaderText = styled.div`
+  font-size: 1.8vw;
+  font-weight: bold;
+  @media only screen and (max-width: 500px){
+    font-size: 20px;
+  }
+`
 
-const mobileHeader = {
-    fontSize: "20px",
-    fontWeight: "bold"
-}
+const StyledImg = styled.img`
+  height:20vw; 
+  width:20vw;
+  @media only screen and (max-width: 500px){
+    height: 30vw;
+    width: 30vw;
+  }
+`
 
 function About() {
-    const isBigScreen = useMediaQuery({minDeviceWidth: 500})
-
     return(
         <AboutWrap>
             <IntroWrap>
                 <IntroText>
-                    <div style={isBigScreen ? header : mobileHeader}>이동창</div>
+                    <HeaderText>이동창</HeaderText>
                     {introText}
                 </IntroText>
             </IntroWrap>
             <ImageWrap>
-                {isBigScreen ? (
-                    <img style={{height:"20vw", width:"20vw"}} src={selfie}/>
-                ) : (
-                    <img style={{height:"30vw", width:"30vw"}} src={selfie}/>
-                )}
+                <StyledImg src={selfie}/>
             </ImageWrap>
             <LinksWrap>
-                <a href="https://velog.io/@leedc0101">velog</a>
+                <h2>Links</h2>
+                <a href="https://github.com/leedc0101" target="_blank">
+                    <div>GitHub</div>
+                </a>
+                <a href="https://velog.io/@leedc0101" target="_blank">
+                    <div>Velog</div>
+                </a>
             </LinksWrap>
         </AboutWrap>
     )
