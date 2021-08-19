@@ -8,7 +8,7 @@ const AboutWrap = styled.div`
   grid-template-areas: 
           "intro image"
           "links image";
-  margin: 30px;
+  margin-top: 80px;
   grid-gap :20px;
   @media only screen and (max-width: 500px){
     grid-template-areas: 
@@ -52,6 +52,7 @@ function About() {
         <AboutWrap>
             <IntroWrap>
                 <IntroText>
+                    <div style={{fontSize:"1.8vw", fontWeight:"bold"}}>이동창</div>
                     {introText}
                 </IntroText>
             </IntroWrap>
