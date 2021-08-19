@@ -11,7 +11,7 @@ const HeaderWrap = styled.div`
   top: 0;
   left: 0;
   right: 0;
-  background-color: #4a4e69;
+  background-color: #22223B;
   color:white;
   height: 70px;
   font-size: 25px;
@@ -47,7 +47,7 @@ const MenuItem = styled.div`
   height: 100%;
   font-size: 20px;
   &:hover {
-    background-color: #4a4e69;
+    background-color: #4A4E69;
   }
 `
 
@@ -57,6 +57,13 @@ const Modal = styled.div`
   top: 70px;
   left: 0;
   background-color: #4a4e69;
+`
+
+const ContentWrap = styled.div`
+  //width: 80%;
+  display: flex;
+  justify-content: center;
+  margin-top: 70px;
 `
 
 function Header() {
@@ -110,9 +117,9 @@ function Header() {
                     )}
                 </Wrap>
             </HeaderWrap>
-            <div style={{marginTop:"70px"}}>
+            <ContentWrap>
                 {content[index]}
-            </div>
+            </ContentWrap>
         </div>
     )
 }
