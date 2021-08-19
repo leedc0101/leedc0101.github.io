@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import styled from "styled-components";
 import About from "./About";
-import Post from "./Post";
+import Toys from "./Toys";
 import Works from "./Works";
 import {useMediaQuery} from "react-responsive";
 import src from '../assets/menu.png'
@@ -70,7 +70,7 @@ function Header() {
     const [index, setIndex] = useState(0)
     const [active, setActive] = useState(false)
     const isBigScreen = useMediaQuery({minDeviceWidth: 700})
-    const content = [<About/>,<Post/>,<Works/>]
+    const content = [<About/>,<Works/>,<Toys/>]
 
     return (
         <div>
@@ -81,8 +81,8 @@ function Header() {
                             <div>Dong Chang Lee</div>
                             <Menu>
                                 <MenuItem onClick={() => index !== 0 && setIndex(0)}>About</MenuItem>
-                                <MenuItem onClick={() => index !== 1 && setIndex(1)}>Post</MenuItem>
-                                <MenuItem onClick={() => index !== 2 && setIndex(2)}>Works</MenuItem>
+                                <MenuItem onClick={() => index !== 1 && setIndex(1)}>Works</MenuItem>
+                                <MenuItem onClick={() => index !== 2 && setIndex(2)}>Toys</MenuItem>
                             </Menu>
                         </>
                     ) :(
