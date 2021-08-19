@@ -15,6 +15,7 @@ const AboutWrap = styled.div`
             "image"
             "intro"
             "links";
+    margin-top: 40px;
   }
 `
 
