@@ -7,7 +7,7 @@ function App() {
   return (
       <div style={{ fontFamily: "Spoqa Han Sans Neo,sans-serif" }}>
           <Header/>
-          <Footer/>
+          {/*<Footer/>*/}
       </div>
   );
 }
