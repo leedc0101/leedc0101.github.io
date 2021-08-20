@@ -5,6 +5,7 @@ import Toys from "./Toys";
 import Works from "./Works";
 import {useMediaQuery} from "react-responsive";
 import src from '../assets/menu.png'
+import {motion} from 'framer-motion'
 
 const HeaderWrap = styled.div`
   position: fixed;
@@ -60,17 +61,24 @@ const Modal = styled.div`
 `
 
 const ContentWrap = styled.div`
-  //width: 80%;
   display: flex;
   justify-content: center;
-  margin-top: 70px;
+  margin-top: 110px;
+  @media only screen and (max-width: 500px){
+    margin-top: 90px;
+  }
 `
 
 function Header() {
     const [index, setIndex] = useState(0)
     const [active, setActive] = useState(false)
+
     const isBigScreen = useMediaQuery({minDeviceWidth: 700})
-    const content = [<About/>,<Works/>,<Toys/>]
+    const content = [
+        <About/>,
+        <Works/>,
+        <Toys/>
+    ]
 
     return (
         <div>
@@ -80,9 +88,9 @@ function Header() {
                         <>
                             <div>Dong Chang Lee</div>
                             <Menu>
-                                <MenuItem onClick={() => index !== 0 && setIndex(0)}>About</MenuItem>
-                                <MenuItem onClick={() => index !== 1 && setIndex(1)}>Works</MenuItem>
-                                <MenuItem onClick={() => index !== 2 && setIndex(2)}>Toys</MenuItem>
+                                <MenuItem onClick={() => {index !== 0 && setIndex(0)}}>About</MenuItem>
+                                <MenuItem onClick={() => {index !== 1 && setIndex(1)}}>Works</MenuItem>
+                                <MenuItem onClick={() => {index !== 2 && setIndex(2)}}>Toys</MenuItem>
                             </Menu>
                         </>
                     ) :(
@@ -118,7 +126,9 @@ function Header() {
                 </Wrap>
             </HeaderWrap>
             <ContentWrap>
-                {content[index]}
+                <motion.div key={index} initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}>
+                    {content[index]}
+                </motion.div>
             </ContentWrap>
         </div>
     )
