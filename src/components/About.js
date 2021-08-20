@@ -1,22 +1,18 @@
 import styled from "styled-components";
 import selfie from "../assets/img.jpeg"
 import {introText} from "../texts";
-import {useMediaQuery} from "react-responsive";
 
 const AboutWrap = styled.div`
   display:grid;
   grid-template-areas: 
           "intro image"
           "links image";
-  margin-top: 80px;
   grid-gap :20px;
   @media only screen and (max-width: 500px){
     grid-template-areas: 
             "image"
             "intro"
             "links";
-    margin-top: 40px;
-    grid-gap: 40px;
   }
 `
 
