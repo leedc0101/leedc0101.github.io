@@ -47,6 +47,9 @@ const MenuItem = styled.div`
   align-items: center;
   height: 100%;
   font-size: 20px;
+  @media only screen and (max-width: 700px){
+    height: 40px;
+  }
   &:hover {
     background-color: #4A4E69;
   }
@@ -54,9 +57,6 @@ const MenuItem = styled.div`
 
 const Modal = styled.div`
   width: 100%;
-  position: absolute;
-  top: 70px;
-  left: 0;
   background-color: #4a4e69;
 `
 
@@ -100,26 +100,28 @@ function Header() {
                                 <img src={src} style={{height:"20px", width:"25px"}}/>
                             </div>
                             { active && (
-                                <Modal>
-                                    <MenuItem onClick={() => {
-                                        index !== 0 && setIndex(0)
-                                        setActive(!active)
-                                    }}>
-                                        About
-                                    </MenuItem>
-                                    <MenuItem onClick={() => {
-                                        index !== 1 && setIndex(1)
-                                        setActive(!active)
-                                    }}>
-                                        Post
-                                    </MenuItem>
-                                    <MenuItem onClick={() => {
-                                        index !== 2 && setIndex(2)
-                                        setActive(!active)
-                                    }}>
-                                        Works
-                                    </MenuItem>
-                                </Modal>
+                                <motion.div style={{width:"100%"}} initial={{top:0}} animate={{position:"fixed", left:0, top:70}} >
+                                    <Modal>
+                                        <MenuItem onClick={() => {
+                                            index !== 0 && setIndex(0)
+                                            setActive(!active)
+                                        }} style={index === 0 ? {color:"#ffffff"} : {color:"#9A8C98"}}>
+                                            About
+                                        </MenuItem>
+                                        <MenuItem onClick={() => {
+                                            index !== 1 && setIndex(1)
+                                            setActive(!active)
+                                        }} style={index === 1 ? {color:"#ffffff"} : {color:"#9A8C98"}}>
+                                            Post
+                                        </MenuItem>
+                                        <MenuItem onClick={() => {
+                                            index !== 2 && setIndex(2)
+                                            setActive(!active)
+                                        }} style={index === 2 ? {color:"#ffffff"} : {color:"#9A8C98"}}>
+                                            Works
+                                        </MenuItem>
+                                    </Modal>
+                                </motion.div>
                             )}
                         </>
                     )}
