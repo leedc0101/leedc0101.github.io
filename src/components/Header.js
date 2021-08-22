@@ -5,7 +5,7 @@ import Toys from "./Toys";
 import Works from "./Works";
 import {useMediaQuery} from "react-responsive";
 import src from '../assets/menu.png'
-import {motion} from 'framer-motion'
+import {AnimatePresence, motion} from 'framer-motion'
 
 const HeaderWrap = styled.div`
   position: fixed;
@@ -83,9 +83,14 @@ function Header() {
 
     return (
         <div>
-            <>
+            <AnimatePresence>
                 { !isBigScreen && active && (
-                    <motion.div style={{width:"100%"}} initial={{top:0}} animate={{position:"fixed", left:0, top:30, zIndex:1}} >
+                    <motion.div
+                    style={{width:"100%"}}
+                    initial={{top:0}}
+                    animate={{position:"fixed", left:0, top:30, zIndex:1}}
+                    exit={{top:-90}}
+                    >
                         <Modal>
                             <MenuItem></MenuItem>
                             <MenuItem onClick={() => {
@@ -109,7 +114,7 @@ function Header() {
                         </Modal>
                     </motion.div>
                 )}
-            </>
+            </AnimatePresence>
             <HeaderWrap>
                 <Wrap>
                     { isBigScreen ? (
@@ -132,7 +137,7 @@ function Header() {
                 </Wrap>
             </HeaderWrap>
             <ContentWrap>
-                <motion.div key={index} initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}>
+                <motion.div key={index} initial={{opacity:0}} transition={{duration:0.5}} animate={{opacity:1}} exit={{opacity:0}}>
                     {content[index]}
                 </motion.div>
             </ContentWrap>
