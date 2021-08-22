@@ -19,6 +19,7 @@ const HeaderWrap = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 10;
 `
 
 const Wrap = styled.div`
@@ -82,6 +83,33 @@ function Header() {
 
     return (
         <div>
+            <>
+                { !isBigScreen && active && (
+                    <motion.div style={{width:"100%"}} initial={{top:0}} animate={{position:"fixed", left:0, top:30, zIndex:1}} >
+                        <Modal>
+                            <MenuItem></MenuItem>
+                            <MenuItem onClick={() => {
+                                index !== 0 && setIndex(0)
+                                setActive(!active)
+                            }} style={index === 0 ? {color:"#ffffff"} : {color:"#9A8C98"}}>
+                                About
+                            </MenuItem>
+                            <MenuItem onClick={() => {
+                                index !== 1 && setIndex(1)
+                                setActive(!active)
+                            }} style={index === 1 ? {color:"#ffffff"} : {color:"#9A8C98"}}>
+                                Post
+                            </MenuItem>
+                            <MenuItem onClick={() => {
+                                index !== 2 && setIndex(2)
+                                setActive(!active)
+                            }} style={index === 2 ? {color:"#ffffff"} : {color:"#9A8C98"}}>
+                                Works
+                            </MenuItem>
+                        </Modal>
+                    </motion.div>
+                )}
+            </>
             <HeaderWrap>
                 <Wrap>
                     { isBigScreen ? (
@@ -99,30 +127,6 @@ function Header() {
                             <div onClick={() => setActive(!active)}>
                                 <img src={src} style={{height:"20px", width:"25px"}}/>
                             </div>
-                            { active && (
-                                <motion.div style={{width:"100%"}} initial={{top:0}} animate={{position:"fixed", left:0, top:70}} >
-                                    <Modal>
-                                        <MenuItem onClick={() => {
-                                            index !== 0 && setIndex(0)
-                                            setActive(!active)
-                                        }} style={index === 0 ? {color:"#ffffff"} : {color:"#9A8C98"}}>
-                                            About
-                                        </MenuItem>
-                                        <MenuItem onClick={() => {
-                                            index !== 1 && setIndex(1)
-                                            setActive(!active)
-                                        }} style={index === 1 ? {color:"#ffffff"} : {color:"#9A8C98"}}>
-                                            Post
-                                        </MenuItem>
-                                        <MenuItem onClick={() => {
-                                            index !== 2 && setIndex(2)
-                                            setActive(!active)
-                                        }} style={index === 2 ? {color:"#ffffff"} : {color:"#9A8C98"}}>
-                                            Works
-                                        </MenuItem>
-                                    </Modal>
-                                </motion.div>
-                            )}
                         </>
                     )}
                 </Wrap>
