@@ -8,7 +8,7 @@ const AboutWrap = styled.div`
           "intro image"
           "links image";
   grid-gap :20px;
-  @media only screen and (max-width: 500px){
+  @media only screen and (max-width: 700px){
     grid-template-areas: 
             "image"
             "intro"
@@ -27,34 +27,34 @@ const IntroWrap = styled.div`
   display: flex;
   flex-direction: column;
   grid-area: intro;
-  line-height: 1.5;
+  line-height: 2;
 `
 
 const LinksWrap = styled.div`
   grid-area: links;
-  font-size: 1vw;
-  line-height: 1.5;
+  font-size: 1.5vw;
+  line-height: 2;
   a {
     text-decoration: none;
     color:#9A8C98;
   }
-  @media only screen and (max-width: 500px){
+  @media only screen and (max-width: 700px){
     font-size: 3.5vw;
   }
 `
 
 const IntroText = styled.div`
   white-space: pre-line;
-  font-size: 1vw;
-  @media only screen and (max-width: 500px){
+  font-size: 1.2vw;
+  @media only screen and (max-width: 700px){
     font-size: 3.5vw;
   }
 `
 
 const HeaderText = styled.div`
-  font-size: 1.8vw;
+  font-size: 3vw;
   font-weight: bold;
-  @media only screen and (max-width: 500px){
+  @media only screen and (max-width: 700px){
     font-size: 20px;
   }
 `
@@ -62,7 +62,7 @@ const HeaderText = styled.div`
 const StyledImg = styled.img`
   height:20vw; 
   width:20vw;
-  @media only screen and (max-width: 500px){
+  @media only screen and (max-width: 700px){
     height: 30vw;
     width: 30vw;
   }
