@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import styled from "styled-components";
 import About from "./About";
 import Toys from "./Toys";
-import Works from "./Works";
+import Study from "./Study";
 import {useMediaQuery} from "react-responsive";
 import src from '../assets/menu.png'
 import {AnimatePresence, motion} from 'framer-motion'
@@ -65,7 +65,7 @@ const ContentWrap = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 110px;
-  @media only screen and (max-width: 500px){
+  @media only screen and (max-width: 700px){
     margin-top: 90px;
   }
 `
@@ -74,10 +74,11 @@ function Header() {
     const [index, setIndex] = useState(0)
     const [active, setActive] = useState(false)
 
-    const isBigScreen = useMediaQuery({minDeviceWidth: 700})
+    const isBigScreen = useMediaQuery({minDeviceWidth: 600})
+    console.log(isBigScreen)
     const content = [
         <About/>,
-        <Works/>,
+        <Study/>,
         <Toys/>
     ]
 
@@ -103,13 +104,13 @@ function Header() {
                                 index !== 1 && setIndex(1)
                                 setActive(!active)
                             }} style={index === 1 ? {color:"#ffffff"} : {color:"#9A8C98"}}>
-                                Post
+                                Study
                             </MenuItem>
                             <MenuItem onClick={() => {
                                 index !== 2 && setIndex(2)
                                 setActive(!active)
                             }} style={index === 2 ? {color:"#ffffff"} : {color:"#9A8C98"}}>
-                                Works
+                                Toys
                             </MenuItem>
                         </Modal>
                     </motion.div>
@@ -122,7 +123,7 @@ function Header() {
                             <div>Dong Chang Lee</div>
                             <Menu>
                                 <MenuItem onClick={() => {index !== 0 && setIndex(0)}}>About</MenuItem>
-                                <MenuItem onClick={() => {index !== 1 && setIndex(1)}}>Works</MenuItem>
+                                <MenuItem onClick={() => {index !== 1 && setIndex(1)}}>Study</MenuItem>
                                 <MenuItem onClick={() => {index !== 2 && setIndex(2)}}>Toys</MenuItem>
                             </Menu>
                         </>
