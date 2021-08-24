@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Loading from "./study-motion/Loading";
 
 const StudyWrap = styled.div`
   display: grid;
@@ -48,7 +49,7 @@ function Study() {
                 Item Name
             </NameWrap>
             <CenterWrap>
-                Center
+                <Loading/>
             </CenterWrap>
             <LeftWrap>
                 Left Arrow
