@@ -1,19 +1,23 @@
 {
   "files": {
-    "main.js": "/static/js/main.252e73b0.chunk.js",
-    "main.js.map": "/static/js/main.252e73b0.chunk.js.map",
+    "main.js": "/static/js/main.3f46a467.chunk.js",
+    "main.js.map": "/static/js/main.3f46a467.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.ea7dfef5.js",
     "runtime-main.js.map": "/static/js/runtime-main.ea7dfef5.js.map",
-    "static/js/2.854fb7df.chunk.js": "/static/js/2.854fb7df.chunk.js",
-    "static/js/2.854fb7df.chunk.js.map": "/static/js/2.854fb7df.chunk.js.map",
+    "static/js/2.3f51e76f.chunk.js": "/static/js/2.3f51e76f.chunk.js",
+    "static/js/2.3f51e76f.chunk.js.map": "/static/js/2.3f51e76f.chunk.js.map",
     "index.html": "/index.html",
-    "static/js/2.854fb7df.chunk.js.LICENSE.txt": "/static/js/2.854fb7df.chunk.js.LICENSE.txt",
+    "static/js/2.3f51e76f.chunk.js.LICENSE.txt": "/static/js/2.3f51e76f.chunk.js.LICENSE.txt",
+    "static/media/ArrowLeft.03b7b9e9.svg": "/static/media/ArrowLeft.03b7b9e9.svg",
+    "static/media/ArrowLeftWhite.b412c326.svg": "/static/media/ArrowLeftWhite.b412c326.svg",
+    "static/media/ArrowRight.33f34a6a.svg": "/static/media/ArrowRight.33f34a6a.svg",
+    "static/media/ArrowRightWhite.34cc0c0f.svg": "/static/media/ArrowRightWhite.34cc0c0f.svg",
     "static/media/img.505379df.jpeg": "/static/media/img.505379df.jpeg",
     "static/media/menu.a32ef1aa.png": "/static/media/menu.a32ef1aa.png"
   },
   "entrypoints": [
     "static/js/runtime-main.ea7dfef5.js",
-    "static/js/2.854fb7df.chunk.js",
-    "static/js/main.252e73b0.chunk.js"
+    "static/js/2.3f51e76f.chunk.js",
+    "static/js/main.3f46a467.chunk.js"
   ]
 }
